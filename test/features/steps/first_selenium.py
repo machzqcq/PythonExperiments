@@ -1,4 +1,4 @@
-from behave import given, when, then
+from behave import *
 from selenium import webdriver
 
 @given('I open seleniumframework website')
