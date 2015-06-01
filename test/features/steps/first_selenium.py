@@ -3,13 +3,14 @@ from selenium import webdriver
 
 @given('I open seleniumframework website')
 def step_impl(context):
-   print("inside given step")
-   global driver
-   driver = webdriver.Chrome()
-   driver.get("http://www.seleniumframework.com")
+   context.browser.get("http://www.seleniumframework.com")
 
 @then('I print the title')
 def step_impl(context):
-   title = driver.title
+   title = context.browser.title
    assert "Selenium" in title
-   driver.close
+
+
+@then("I print domain")
+def step_impl(context):
+    print(context.browser.current_url)
